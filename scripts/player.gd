@@ -11,6 +11,8 @@ extends Node2D
 @onready var bounce_timer = $BounceTimer
 @onready var body = $CharacterBody2D
 @onready var skills = $Skills
+@onready var stats = $Stats
+@onready var UI = %UI
 
 var curr_speed := DEFAULT_SPEED
 
@@ -64,6 +66,13 @@ func _physics_process(delta: float) -> void:
 				bounce_timer.start()
 				curr_speed = BOUNCE_IMPULSE_X
 				bouncing = true
+
+func damage(dmg: int):
+	stats.PLAYER_HEALTH -= dmg
+	print("health: ", stats.PLAYER_HEALTH)
+	UI.get_child(0).text = "Health: " + str(stats.PLAYER_HEALTH)
+	if stats.PLAYER_HEALTH <= 0:
+		get_tree().reload_current_scene()
 
 func _on_timer_dash_timeout() -> void:
 	dashing = false

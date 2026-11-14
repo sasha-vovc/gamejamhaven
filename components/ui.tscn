@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://mw6ledt36f6j"]
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=1491298553]
+
+[node name="Label" type="Label" parent="." unique_id=1100586131]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Health: 100"
