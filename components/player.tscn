@@ -38,13 +38,52 @@ func can_shoot():
 	return shoot
 "
 
+[sub_resource type="Animation" id="Animation_uapwn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterBody2D/AnimatedSprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0.38, 0.38, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_5odhx"]
+resource_name = "hit"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterBody2D/AnimatedSprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0.38, 0.38, 1), Color(1, 1, 1, 1), Color(1, 0.38, 0.38, 1), Color(1, 1, 1, 1), Color(1, 0.38, 0.38, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1kub6"]
+_data = {
+&"RESET": SubResource("Animation_uapwn"),
+&"hit": SubResource("Animation_5odhx")
+}
+
 [node name="Player" type="Node2D" unique_id=605898159]
 script = ExtResource("1_51jd6")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=397023095]
+collision_layer = 2
 collision_mask = 5
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=61116110]
+modulate = Color(1, 0.38, 0.38, 1)
 position = Vector2(0, -0.9999999)
 scale = Vector2(0.1718937, 0.1718937)
 sprite_frames = SubResource("SpriteFrames_cp1u2")
@@ -79,5 +118,11 @@ one_shot = true
 [node name="Stats" type="Node" parent="." unique_id=755825790]
 script = ExtResource("3_uapwn")
 
+[node name="IFrameTimer" type="Timer" parent="." unique_id=1847096246]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1814769770]
+libraries/ = SubResource("AnimationLibrary_1kub6")
+
 [connection signal="timeout" from="DashTimer" to="." method="_on_timer_dash_timeout"]
 [connection signal="timeout" from="BounceTimer" to="." method="_on_bounce_timer_timeout"]
+[connection signal="timeout" from="IFrameTimer" to="." method="_on_i_frame_timer_timeout"]

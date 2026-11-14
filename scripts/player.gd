@@ -6,6 +6,9 @@ extends Node2D
 @export var BOUNCE_IMPULSE_X := 300
 @export var BOUNCE_IMPULSE_Y := -150
 
+
+@onready var player = $AnimationPlayer
+@onready var iframes_timer = $IFrameTimer
 @onready var dash_timer = $DashTimer
 @onready var dash_cd = $DashCooldown
 @onready var bounce_timer = $BounceTimer
@@ -19,6 +22,7 @@ var curr_speed := DEFAULT_SPEED
 var dashing = false
 var bouncing = false
 var dir := 0
+var in_iframes := false
 
 func _ready():
 	skills.unlock_dash()
@@ -47,6 +51,8 @@ func proc_movement(delta):
 func handle_dash(dir: int):
 	if not bouncing and Input.is_action_pressed("dash") and skills.can_dash() and not dashing and dash_cd.is_stopped():
 		dashing = true
+		in_iframes = true
+		iframes_timer.start()
 		curr_speed = DASH_IMPULSE
 		dash_timer.start()
 		
@@ -57,10 +63,11 @@ func _physics_process(delta: float) -> void:
 	
 	var collision = body.move_and_slide()
 	if dashing and collision and not bouncing:
-		var collision_body = body.get_last_slide_collision()
-		
 		for i in body.get_slide_collision_count():
 			var J = body.get_slide_collision(i)
+			
+			if J.get_collider() is TileMapLayer:
+				continue
 		
 			if J.get_collider().get_collision_layer() & (1 << 2):
 				bounce_timer.start()
@@ -68,6 +75,12 @@ func _physics_process(delta: float) -> void:
 				bouncing = true
 
 func damage(dmg: int):
+	if in_iframes:
+		return
+	
+	in_iframes = true
+	player.play("hit")
+	iframes_timer.start()
 	stats.PLAYER_HEALTH -= dmg
 	print("health: ", stats.PLAYER_HEALTH)
 	UI.get_child(0).text = "Health: " + str(stats.PLAYER_HEALTH)
@@ -82,3 +95,7 @@ func _on_timer_dash_timeout() -> void:
 func _on_bounce_timer_timeout() -> void:
 	bouncing = false
 	curr_speed = DEFAULT_SPEED
+
+
+func _on_i_frame_timer_timeout() -> void:
+	in_iframes = false
