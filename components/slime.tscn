@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://bpprvi47hj8ek"]
+
+[ext_resource type="Script" uid="uid://ct0dpqay5v3nc" path="res://scripts/character_body_2d.gd" id="1_e0fji"]
+[ext_resource type="Texture2D" uid="uid://dawji635bfcmy" path="res://icon.svg" id="1_mo60x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dxr5g"]
+size = Vector2(118, 118)
+
+[node name="slime" type="Node2D" unique_id=346670211]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1840482250]
+script = ExtResource("1_e0fji")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=867722666]
+texture = ExtResource("1_mo60x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=2009486911]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_dxr5g")
+
+[node name="RayCastRightWall" type="RayCast2D" parent="CharacterBody2D" unique_id=1072615470]
+target_position = Vector2(80, 0)
+
+[node name="RayCastLeftWall" type="RayCast2D" parent="CharacterBody2D" unique_id=1644510777]
+target_position = Vector2(-80, 0)
+
+[node name="RayCastRightPlayer" type="RayCast2D" parent="CharacterBody2D" unique_id=59572393]
+target_position = Vector2(200, 0)
+collision_mask = 2
+
+[node name="RayCastLeftPlayer" type="RayCast2D" parent="CharacterBody2D" unique_id=1291187726]
+target_position = Vector2(-200, 0)
+collision_mask = 2
+
+[node name="Dash Timer" type="Timer" parent="CharacterBody2D" unique_id=1955988098]
+wait_time = 0.3
+one_shot = true
+
+[node name="CooldownTimer" type="Timer" parent="CharacterBody2D" unique_id=65105953]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="timeout" from="CharacterBody2D/Dash Timer" to="CharacterBody2D" method="_on_dash_timer_timeout"]
+[connection signal="timeout" from="CharacterBody2D/CooldownTimer" to="CharacterBody2D" method="_on_cooldown_timer_timeout"]

@@ -1,10 +1,21 @@
 [gd_scene format=3 uid="uid://c8dj3rluuw4rk"]
 
+[ext_resource type="PackedScene" uid="uid://bpprvi47hj8ek" path="res://components/slime.tscn" id="1_o5qli"]
+
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_cp1u2"]
 
 [node name="Node2D" type="Node2D" unique_id=157509508]
+position = Vector2(53, 87)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=229819245]
+position = Vector2(-53, -140)
+
+[node name="Slime" parent="." unique_id=26519526 instance=ExtResource("1_o5qli")]
+position = Vector2(-48, -154)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=734690746]
+position = Vector2(-51, -88)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=498007887]
+position = Vector2(-1, 4)
 shape = SubResource("WorldBoundaryShape2D_cp1u2")
