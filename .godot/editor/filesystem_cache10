@@ -1,3 +1,21 @@
 78098b89c88a74ebe8c20117b8754620
-::res://::1794647309
-icon.svg::CompressedTexture2D::7205240773797732016::1794647307::1794647310::1::::<><><>0<>0<>67b5f7f11e5edf156755bb665267fef9<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
+::res://::1794667059
+icon.svg::CompressedTexture2D::7205240773797732016::1794647476::1794648704::1::::<><><>0<>0<>67b5f7f11e5edf156755bb665267fef9<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
+::res://assets/::1794665261
+tile map.png::CompressedTexture2D::6914288256340544122::1794658826::1794665261::1::::<><><>0<>0<>88f82707cd6c95277052843ee350c694<>res://.godot/imported/tile map.png-e478b68985ec6747ab3207db2a67dc46.ctex::
+::res://assets/__MACOSX/::1794658844
+._tile map.png::CompressedTexture2D::2104709907636693419::1794658826::1794658844::0::::<><><>0<>0<>69630333973517ad4fd8c5eed3278887<>::
+::res://components/::1794666927
+damage.tscn::PackedScene::8383214034345794728::1794665261::0::1::::<><><>0<>0<><>::uid://b7jpoajseepf0::::res://scripts/damage.gd
+player.tscn::PackedScene::1528077108711740117::1794665261::0::1::::<><><>0<>0<><>::uid://dawji635bfcmy::::res://icon.svg<>uid://dvgtekb2regfa::::res://scripts/player.gd<>uid://cxrt71eyvqdhv::::res://scripts/stats.gd
+slime.tscn::PackedScene::3471289161573325326::1794666567::0::1::::<><><>0<>0<><>::uid://ct0dpqay5v3nc::::res://scripts/slime.gd<>uid://dawji635bfcmy::::res://icon.svg
+spike_trap.tscn::PackedScene::8781638442702012461::1794666927::0::1::::<><><>0<>0<><>::uid://dawji635bfcmy::::res://icon.svg<>uid://cp5pjjbbebsk7::::res://scripts/spike.gd
+ui.tscn::PackedScene::889584520384147475::1794665261::0::1::::<><><>0<>0<><>::
+::res://scenes/::1794665116
+main.tscn::PackedScene::7095863706693820400::1794665249::0::1::::<><><>0<>0<><>::uid://v1hha8e5k58l::::res://components/player.tscn<>uid://dawji635bfcmy::::res://icon.svg<>uid://mw6ledt36f6j::::res://components/ui.tscn<>uid://dro5ks0yhvp5y::::res://components/damage.tscn
+::res://scripts/::1794666927
+damage.gd::GDScript::4651978850629438303::1794665116::0::1::::<>Node2D<><>0<>0<><>::
+player.gd::GDScript::8646775328068468626::1794665116::0::1::::<>Node2D<><>0<>0<><>::
+slime.gd::GDScript::6158248619752185396::1794665527::0::1::::<>CharacterBody2D<><>0<>0<><>::
+spike.gd::GDScript::5888532655920919140::1794666927::0::1::::<>StaticBody2D<><>0<>0<><>::
+stats.gd::GDScript::6423491334052949855::1794665116::0::1::::<>Node<><>0<>0<><>::

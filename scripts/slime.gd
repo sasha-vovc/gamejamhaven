@@ -1,6 +1,6 @@
 extends CharacterBody2D
 var direction = Vector2(1,0)
-@export var speed = 300
+@export var speed = 100
 @onready var ray_cast_right_wall: RayCast2D = $RayCastRightWall
 @onready var ray_cast_left_wall: RayCast2D = $RayCastLeftWall
 @onready var ray_cast_right_player: RayCast2D = $RayCastRightPlayer
@@ -34,7 +34,7 @@ func _physics_process(delta: float) -> void:
 	if ray_cast_left_player.is_colliding():
 		hit_point = ray_cast_left_player.get_collision_point()
 		distance_to_hit = global_position.distance_to(hit_point)
-		if distance_to_hit > 50: 
+		if distance_to_hit > 10: 
 			direction.x = -1
 		else:
 			direction.x = 0
@@ -42,7 +42,7 @@ func _physics_process(delta: float) -> void:
 	if ray_cast_right_player.is_colliding():
 		hit_point = ray_cast_right_player.get_collision_point()
 		distance_to_hit = global_position.distance_to(hit_point)
-		if distance_to_hit > 50: 
+		if distance_to_hit > 10: 
 			direction.x = 1
 		else:
 			direction.x = 0
@@ -57,7 +57,7 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_dash_timer_timeout() -> void:
-	speed = 300
+	speed = 100
 
 
 func _on_cooldown_timer_timeout() -> void:
