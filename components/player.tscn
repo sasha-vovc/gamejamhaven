@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://v1hha8e5k58l"]
+
+[ext_resource type="Texture2D" uid="uid://dawji635bfcmy" path="res://icon.svg" id="1_0g4kb"]
+[ext_resource type="Script" uid="uid://dvgtekb2regfa" path="res://scripts/player.gd" id="1_51jd6"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cp1u2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_0g4kb")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cp1u2"]
+radius = 5.0
+height = 24.0
+
+[sub_resource type="GDScript" id="GDScript_51jd6"]
+script/source = "extends Node
+
+var dash := false
+var shoot := false
+
+func unlock_dash():
+	dash = true	
+	
+func unlock_shoot():
+	shoot = true
+
+func can_dash():
+	return dash
+	
+func can_shoot():
+	return shoot
+"
+
+[node name="Player" type="Node2D" unique_id=605898159]
+script = ExtResource("1_51jd6")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=397023095]
+collision_mask = 5
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=61116110]
+position = Vector2(0, -0.9999999)
+scale = Vector2(0.1718937, 0.1718937)
+sprite_frames = SubResource("SpriteFrames_cp1u2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=325169362]
+position = Vector2(0, -1)
+scale = Vector2(1, 0.88000035)
+shape = SubResource("CapsuleShape2D_cp1u2")
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=1588648315]
+position = Vector2(5, -2)
+zoom = Vector2(3, 3)
+limit_bottom = 48
+limit_smoothed = true
+position_smoothing_enabled = true
+position_smoothing_speed = 4.0
+
+[node name="Skills" type="Node" parent="." unique_id=1196585121]
+script = SubResource("GDScript_51jd6")
+
+[node name="DashTimer" type="Timer" parent="." unique_id=87782909]
+wait_time = 0.3
+one_shot = true
+
+[node name="DashCooldown" type="Timer" parent="." unique_id=594564326]
+one_shot = true
+
+[node name="BounceTimer" type="Timer" parent="." unique_id=1985879669]
+wait_time = 0.2
+one_shot = true
+
+[connection signal="timeout" from="DashTimer" to="." method="_on_timer_dash_timeout"]
+[connection signal="timeout" from="BounceTimer" to="." method="_on_bounce_timer_timeout"]
