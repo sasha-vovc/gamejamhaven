@@ -1,21 +1,75 @@
-[gd_scene format=3 uid="uid://c8dj3rluuw4rk"]
+[gd_scene format=4 uid="uid://c8dj3rluuw4rk"]
 
 [ext_resource type="PackedScene" uid="uid://bpprvi47hj8ek" path="res://components/slime.tscn" id="1_o5qli"]
+[ext_resource type="Texture2D" uid="uid://c5rlk151by7kw" path="res://assets/tile map.png" id="2_0wfyh"]
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_cp1u2"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sugp2"]
+texture = ExtResource("2_0wfyh")
+texture_region_size = Vector2i(256, 256)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 128, -128, 128)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 128, -128, 128)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 128, -128, 128)
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 128, -128, 128)
+3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 128, -128, 128)
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 128, -128, 128)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 128, -128, 128)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 128, -128, 128)
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 128, -128, 128)
+1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 128, -128, 128)
+3:2/0 = 0
+3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 128, -128, 128)
+2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 128, -128, 128)
+3:3/0 = 0
+3:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 128, -128, 128)
+2:3/0 = 0
+2:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 128, -128, 128)
+1:3/0 = 0
+1:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 128, -128, 128)
+0:3/0 = 0
+0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 128, -128, 128)
 
-[node name="Node2D" type="Node2D" unique_id=157509508]
+[sub_resource type="TileSet" id="TileSet_dxr5g"]
+tile_size = Vector2i(256, 256)
+physics_layer_0/collision_layer = 5
+sources/0 = SubResource("TileSetAtlasSource_sugp2")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xadyu"]
+size = Vector2(21, 118)
+
+[node name="main" type="Node2D" unique_id=157509508]
 position = Vector2(53, 87)
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=229819245]
-position = Vector2(-53, -140)
-
 [node name="Slime" parent="." unique_id=26519526 instance=ExtResource("1_o5qli")]
-position = Vector2(-48, -154)
+position = Vector2(-271, -419)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=734690746]
-position = Vector2(-51, -88)
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1773754050]
+tile_map_data = PackedByteArray("AAD+////AAAAAAAAAAD/////AAABAAAAAAAAAP//AAACAAAAAAABAP//AAADAAAAAAABAAAAAAACAAIAAAABAAEAAAACAAMAAAD+/wAAAAAAAAEAAAD+/wEAAAAAAAMAAAD//wAAAAABAAIAAAAAAAAAAAABAAIAAAAAAAEAAAACAAMAAAD//wEAAAACAAMAAAACAAAAAAACAAAAAAADAAAAAAABAAAAAAACAAEAAAACAAMAAAADAAEAAAACAAMAAAAEAAEAAAADAAMAAAAEAAAAAAADAAAAAAAIAP//AAAAAAAAAAAIAAAAAAAAAAEAAAAIAAEAAAAAAAEAAAAIAAIAAAAAAAEAAAAIAAMAAAAAAAMAAAAJAAMAAAABAAMAAAAJAAIAAAABAAEAAAAJAAEAAAACAAEAAAAKAAMAAAABAAMAAAALAAMAAAADAAMAAAALAAIAAAADAAEAAAALAAEAAAADAAAAAAAKAAEAAAACAAAAAAAJAAAAAAADAAEAAAAKAAIAAAACAAEAAAAJAP//AAADAAAAAAAPAAAAAAAAAAAAAAAQAAAAAAACAAAAAAARAAAAAAACAAAAAAASAAAAAAACAAAAAAATAAAAAAADAAAAAAATAAEAAAADAAMAAAASAAEAAAACAAMAAAARAAEAAAACAAMAAAAQAAEAAAACAAMAAAAPAAEAAAAAAAMAAAAWAP//AAAAAAAAAAAXAP//AAADAAAAAAAXAAAAAAADAAMAAAAWAAAAAAAAAAMAAAAbAAQAAAAAAAAAAAAcAAQAAAABAAAAAAAdAAQAAAABAAAAAAAeAAQAAAABAAAAAAAfAAQAAAABAAAAAAAgAAQAAAABAAAAAAAhAAQAAAADAAAAAAAhAAUAAAADAAMAAAAgAAUAAAACAAMAAAAfAAUAAAACAAMAAAAeAAUAAAACAAMAAAAdAAUAAAACAAMAAAAcAAUAAAACAAMAAAAbAAUAAAAAAAMAAAA=")
+tile_set = SubResource("TileSet_dxr5g")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=498007887]
-position = Vector2(-1, 4)
-shape = SubResource("WorldBoundaryShape2D_cp1u2")
+[node name="ObstaclesForEnemy" type="Node2D" parent="." unique_id=1491825496]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="ObstaclesForEnemy" unique_id=477384652]
+position = Vector2(-550, -315)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ObstaclesForEnemy/StaticBody2D" unique_id=1815926058]
+position = Vector2(40, 0)
+shape = SubResource("RectangleShape2D_xadyu")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="ObstaclesForEnemy/StaticBody2D" unique_id=632864997]
+position = Vector2(1012, 1)
+collision_layer = 17
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ObstaclesForEnemy/StaticBody2D/StaticBody2D" unique_id=226636273]
+position = Vector2(40, 0)
+shape = SubResource("RectangleShape2D_xadyu")

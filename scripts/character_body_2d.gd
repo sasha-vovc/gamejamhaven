@@ -21,8 +21,8 @@ func dash():
 	if can_dash:
 		speed = 800
 		dash_timer.start()
-	can_dash = false
-	cooldown_timer.start()
+		can_dash = false
+		cooldown_timer.start()
 	
 
 func _physics_process(delta: float) -> void:
