@@ -1,3 +1,19 @@
 78098b89c88a74ebe8c20117b8754620
-::res://::1794647309
+::res://::1794667298
 icon.svg::CompressedTexture2D::7205240773797732016::1794647307::1794647310::1::::<><><>0<>0<>67b5f7f11e5edf156755bb665267fef9<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
+::res://assets/::1794665312
+tile map.png::CompressedTexture2D::8133407684205390328::1794665262::1794665312::1::::<><><>0<>0<>805286a7c70d39135f697dcb873a706f<>res://.godot/imported/tile map.png-e478b68985ec6747ab3207db2a67dc46.ctex::
+::res://assets/__MACOSX/::1794662211
+::res://components/::1794667272
+damage.tscn::PackedScene::8383214034345794728::1794661205::0::1::::<><><>0<>0<><>::uid://b7jpoajseepf0::::res://scripts/damage.gd
+player.tscn::PackedScene::1528077108711740117::1794667272::0::1::::<><><>0<>0<><>::uid://dawji635bfcmy::::res://icon.svg<>uid://dvgtekb2regfa::::res://scripts/player.gd<>uid://cxrt71eyvqdhv::::res://scripts/stats.gd
+slime.tscn::PackedScene::3471289161573325326::1794667014::0::1::::<><><>0<>0<><>::uid://ct0dpqay5v3nc::::res://scripts/character_body_2d.gd<>uid://b7avo5nhv4tu4::::res://scripts/slime.gd<>uid://dawji635bfcmy::::res://icon.svg<>uid://dro5ks0yhvp5y::::res://components/damage.tscn
+ui.tscn::PackedScene::889584520384147475::1794666688::0::1::::<><><>0<>0<><>::
+::res://scenes/::1794666906
+main.tscn::PackedScene::7095863706693820400::1794666906::0::1::::<><><>0<>0<><>::uid://bpprvi47hj8ek::::res://components/slime.tscn<>uid://dn45bh55mi7fo::::res://assets/tile map.png<>uid://v1hha8e5k58l::::res://components/player.tscn<>uid://mw6ledt36f6j::::res://components/ui.tscn<>uid://dro5ks0yhvp5y::::res://components/damage.tscn
+::res://scripts/::1794667272
+character_body_2d.gd::GDScript::6158248619752185396::1794665949::0::1::::<>CharacterBody2D<><>0<>0<><>::
+damage.gd::GDScript::4651978850629438303::1794667014::0::1::::<>Node2D<><>0<>0<><>::
+player.gd::GDScript::8646775328068468626::1794667272::0::1::::<>Node2D<><>0<>0<><>::
+slime.gd::GDScript::4633765334203136873::1794666642::0::1::::<>Node2D<><>0<>0<><>::
+stats.gd::GDScript::6423491334052949855::1794666024::0::1::::<>Node<><>0<>0<><>::

@@ -1,7 +1,2 @@
-res://scenes/main.tscn
-res://components/player.tscn
 res://scripts/player.gd
-res://scripts/stats.gd
-res://scripts/damage.gd
-res://components/damage.tscn
-res://components/ui.tscn
+res://components/player.tscn
