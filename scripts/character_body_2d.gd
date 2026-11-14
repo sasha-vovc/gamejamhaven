@@ -26,7 +26,6 @@ func dash():
 	
 
 func _physics_process(delta: float) -> void:
-
 	if ray_cast_left_wall.is_colliding() and direction.x < 0:
 		direction.x = 1
 	if ray_cast_right_wall.is_colliding() and direction.x > 0:
